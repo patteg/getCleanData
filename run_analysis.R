@@ -33,6 +33,7 @@ activity_labels$V2 <- tolower(gsub('_','',activity_labels$V2))
 
 # 5. create dataset with all mean and std related columns 
 #    apply scrubbed data column headings
+#    create scrubbed data set
 ds <- x[,c(stdMeanCols[,1])]
 colnames(ds)[1:length(ds)] <- stdMeanCols[,2]
 ds2 <- cbind(subj,y, ds)
@@ -43,7 +44,7 @@ ds3<- merge(ds2, activity_labels, by.x='activity', by.y='V1')
 ds4<- ds3[, c(2,length(ds3), 3:(length(ds3)-1))]
 colnames(ds4)[2]<-'activity'
 ds4<- ds4 [with(ds4, order(subject, activity)),]
-
+write.table(ds4,'./scrubbed_data_set.txt')
 
 # 6. create tidy data set
 #    calculate mean of all measurments, group by subject and activity
