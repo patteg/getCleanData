@@ -1,3 +1,4 @@
+# adjustment to test github
 # run_analysis.R 
 # scrubs and builds tidy data set from smartphone accelerometers
 
@@ -13,6 +14,7 @@ subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", quote="\""
 features <- read.table("./UCI HAR Dataset/features.txt", quote="\"")
 activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt", quote="\"")
 
+# second adjustment here
 # 2. append the data sets into new variables
 x <- rbind(x_test, x_train)
 y <- rbind(y_test, y_train)
